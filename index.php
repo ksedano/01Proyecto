@@ -9,7 +9,7 @@
 <body>
 	<?php
 		$file = fopen("config.txt", "r");
-		echo fgets($file);
+		//echo fgets($file);
 		fclose($file);
 
 		$ArrayImagenes = [
@@ -27,9 +27,28 @@
 			"User_12.jpg" => "User12"
 		];
 
-		$RandomImg = array_rand($ArrayImagenes);
+		$RandomImgServer = array_rand($ArrayImagenes);
 
-		echo "<div id='imagenServer'><img src='Images/.$ArrayImagenes.'></img></div>";
+		echo "<div id='tableroCartas'>";
+		echo "<div id='imagenServer'><img width='150' hieght='150' src='Images/$RandomImgServer'></img></div>";
+
+    	echo "<table class='table' id='Cartas'>";
+
+    	$ImagenesUtilizadas = [];
+      	for ($i=0; $i < 3; $i++) {
+        	echo "<tr>";
+        	for ($x=0; $x < 4; $x++) {
+         		$RandomTablero = array_rand($ArrayImagenes);
+            	if(in_array($RandomTablero, $ImagenesUtilizadas)){
+            		continue;
+   				}else{
+    				array_push($ImagenesUtilizadas, $RandomTablero);
+    				echo "<td><img width='150' hieght='150' src='Images/$RandomTablero'></td>";
+    			}
+        	}
+        	echo "</tr>";
+      	}
+      	echo "</table></div>";
 	?>
 </body>
 </html>
