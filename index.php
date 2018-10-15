@@ -40,7 +40,7 @@
         	for ($x=0; $x < 4; $x++) {
          		$RandomTablero = array_rand($ArrayImagenes);
             	if(in_array($RandomTablero, $ImagenesUtilizadas)){
-            		continue;
+            		$x-=1;
    				}else{
     				array_push($ImagenesUtilizadas, $RandomTablero);
     				echo "<td><img width='150' hieght='150' src='Images/$RandomTablero'></td>";
