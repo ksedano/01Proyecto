@@ -8,8 +8,11 @@
 </head>
 <body>
 	<?php
-		$file = fopen("config.txt", "r");
-		//echo fgets($file);
+		$file = file("config.txt");
+		foreach ($file as $key => $value) {
+			$texto = strrchr($value, ":");
+			echo $texto;
+		}
 		fclose($file);
 
 		$ArrayImagenes = [
