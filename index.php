@@ -8,11 +8,37 @@
 </head>
 <body>
 	<?php
-		$file = file("config.txt");
+		//COMPROBAMOS QUE NO HAYAN CARACTERISTICAS REPETIDAS
+		$Caracteristicas = [];
+		$file = file("imatges.txt");
 		foreach ($file as $key => $value) {
 			$texto = strrchr($value, ":");
-			echo $texto;
+			if(in_array($texto, $Caracteristicas)){
+				echo "<h1>Error</h1>";
+				exit;
+			}else{
+				array_push($Caracteristicas, $texto);
+			}
 		}
+
+		//COMPROBAMOS QUE NO HAYAN NOMBRES DE FICHEROS REPETIDOS
+		$Ficheros = [];
+		$x=10;
+		$count=1;
+		foreach ($file as $key => $value) {
+			$texto = substr($value, 0, $x);
+			if(in_array($texto, $Caracteristicas)){
+				echo "<h1>Error</h1>";
+				exit;
+			}else{
+				array_push($Caracteristicas, $texto);
+			}$count+=1;
+			if($count==10){
+				$x+=1;
+			}
+		}
+
+
 		fclose($file);
 
 		$ArrayImagenes = [
@@ -42,13 +68,13 @@
         	echo "<tr>";
         	for ($x=0; $x < 4; $x++) {
          		$RandomTablero = array_rand($ArrayImagenes);
-            	if(in_array($RandomTablero, $ImagenesUtilizadas)){
+				if(in_array($RandomTablero, $ImagenesUtilizadas)){
             		$x-=1;
    				}else{
     				array_push($ImagenesUtilizadas, $RandomTablero);
     				echo "<td><img width='150' hieght='150' src='Images/$RandomTablero'></td>";
-    			}
-        	}
+    				}
+				}
         	echo "</tr>";
       	}
       	echo "</table></div>";
