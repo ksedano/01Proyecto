@@ -1,0 +1,24 @@
+.carta-box {
+  width: 150px;
+  height: 150px;
+  position: relative;
+  perspective: 1000px;
+}
+ 
+.carta-box:hover .carta {
+    transform: rotateY(180deg);
+}
+ 
+.carta {
+  transform-style: preserve-3d;
+  transition: all 1s linear;
+}
+ 
+.cara {
+  position: absolute;
+  backface-visibility: hidden;
+}
+ 
+.cara.detras {
+  transform: rotateY(180deg);
+}

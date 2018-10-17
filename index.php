@@ -27,19 +27,16 @@
 		$count=1;
 		foreach ($file as $key => $value) {
 			$texto = substr($value, 0, $x);
-			if(in_array($texto, $Caracteristicas)){
+			if(in_array($texto, $Ficheros)){
 				echo "<h1>Error</h1>";
 				exit;
 			}else{
-				array_push($Caracteristicas, $texto);
+				array_push($Ficheros, $texto);
 			}$count+=1;
 			if($count==10){
 				$x+=1;
 			}
 		}
-
-
-		fclose($file);
 
 		$ArrayImagenes = [
 			"User_1.jpg" => "User1",
@@ -57,10 +54,8 @@
 		];
 
 		$RandomImgServer = array_rand($ArrayImagenes);
-
 		echo "<div id='tableroCartas'>";
 		echo "<div id='imagenServer'><img width='150' hieght='150' src='Images/$RandomImgServer'></img></div>";
-
     	echo "<table class='table' id='Cartas'>";
 
     	$ImagenesUtilizadas = [];
@@ -72,7 +67,17 @@
             		$x-=1;
    				}else{
     				array_push($ImagenesUtilizadas, $RandomTablero);
-    				echo "<td><img width='150' hieght='150' src='Images/$RandomTablero'></td>";
+    				echo "<td>";
+					echo "<div class='carta-box'>";
+						echo "<div class='carta'>";
+							echo "<div class='cara'>";
+								echo "<img src='Images/$RandomTablero' width='150' height='150'>";
+							echo "</div>";
+							echo "<div class='cara detras'>";
+								echo "<img src='ParteTrasera.png' width='150' height='150'>";
+							echo "</div>";
+						echo "</div>";
+					echo "</td>";
     				}
 				}
         	echo "</tr>";
