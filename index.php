@@ -54,8 +54,20 @@
 		];
 
 		$RandomImgServer = array_rand($ArrayImagenes);
+
 		echo "<div id='tableroCartas'>";
-		echo "<div id='imagenServer'><img width='150' hieght='150' src='Images/$RandomImgServer'></img></div>";
+
+		echo "<div class='carta-box'>";
+			echo "<div class='carta'>";
+				echo "<div class='cara'>";
+					echo "<img src='ParteTrasera.png' width='150' height='150'>";
+				echo "</div>";
+				echo "<div class='cara detras'>";
+					echo "<img src='Images/$RandomImgServer' width='150' height='150'>";
+				echo "</div>";
+			echo "</div>";
+		echo "</div>";
+
     	echo "<table class='table' id='Cartas'>";
 
     	$ImagenesUtilizadas = [];
@@ -83,6 +95,26 @@
         	echo "</tr>";
       	}
       	echo "</table></div>";
+      	echo "<select name='Combo1' size=1 onChange='ComboBox1Selec();'>";
+		echo "<option id='Pelo1' selected='true'>¿De que color tiene el pelo?</option>";
+		echo "<option id='Pelo2'>¿Tiene el pelo moreno?</option>";
+		echo "<option id='Pelo3'>¿Tiene el pelo rubio?</option>";
+		echo "<option id='Pelo4'>¿Tiene el pelo castaño?</option>";
+		echo "</select>";
+
+		echo "<select name='Combo2' size=1 onChange='ComboBox2Selec();'>";
+		echo "<option id='Gafas1' selected='true'>¿Lleva gafas o no?</option>";
+		echo "<option id='Gafas2'>¿Lleva gafas?</option>";
+		echo "<option id='Gafas3'>¿No lleva gafas?</option>";
+		echo "</select>";
+
+		echo "<select name='Combo3' size=1 onChange='ComboBox3Selec();'>";
+		echo "<option id='Sexo1' selected='true'>¿De que sexo es?</option>";
+		echo "<option id='Sexo2'>¿Es hombre?</option>";
+		echo "<option id='Sexo3'>¿Es mujer?</option>";
+		echo "</select>";
+
+		echo "<button type='button' id='preguntar' onclick='preguntaComboBox()'>Preguntar</button>";
 	?>
 </body>
 </html>
