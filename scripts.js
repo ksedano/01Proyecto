@@ -30,10 +30,13 @@ function ComboBox3Selec(){
 
 //FUNCION PREGUNTA COMBOBOX
 function preguntaComboBox(){
-	if(document.getElementById("Opcion2")||document.getElementById("Opcion3")||
-	document.getElementById("Opcion4").checked==true){
-		document.getElementById("preguntar").disabled=false;
-	}else{
-		
+	if(document.getElementByClassName("Pelo") && document.getElementByClassName("Gafas").selected==true){
+		document.getElementById("mensaje").innerHTML = "Error";
+	}
+	if(document.getElementByClassName("Gafas") && document.getElementByClassName("Sexo").selected==true){
+		document.getElementById("mensaje").innerHTML = "Error";
+	}
+	if(document.getElementByClassName("Sexo") && document.getElementByClassName("Pelo").selected==true){
+		document.getElementById("mensaje").innerHTML = "Error";
 	}
 }
