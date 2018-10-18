@@ -1,12 +1,12 @@
-User_1.jpg : No Moreno Dona
-User_2.jpg : Si Castany Home
-User_3.jpg : Si Moreno Dona
-User_4.jpg : Si Moreno Home
-User_5.jpg : No Ros Dona
-User_6.jpg : No Moreno Home
-User_7.jpg : Si Ros Dona
-User_8.jpg : Si Ros Home
-User_9.jpg : No Castany Dona
-User_10.jpg : No Ros Home
-User_11.jpg : Si Castany Dona
-User_12.jpg : No Castany Home
+User_1.jpg : ulleres no, cabell moreno, sexe dona
+User_2.jpg : ulleres si, cabell castany, sexe home
+User_3.jpg : ulleres si, cabell moreno, sexe dona
+User_4.jpg : ulleres si, cabell moreno, sexe home
+User_5.jpg : ulleres no, cabell ros, sexe dona
+User_6.jpg : ulleres no, cabell moreno, sexe home
+User_7.jpg : ulleres si, cabell ros, sexe dona
+User_8.jpg : ulleres si, cabell ros, sexe home
+User_9.jpg : ulleres no, cabell castany, sexe dona
+User_10.jpg : ulleres no, cabell ros, sexe home
+User_11.jpg : ulleres si, cabell castany, sexe dona
+User_12.jpg : ulleres no, cabell castany, sexe home

@@ -14,7 +14,7 @@
 		foreach ($file as $key => $value) {
 			$texto = strrchr($value, ":");
 			if(in_array($texto, $Caracteristicas)){
-				echo "<h1>Error</h1>";
+				echo "<h1>Error, algunos personajes tienen caracteristicas identicas. [imatges.txt]</h1>";
 				exit;
 			}else{
 				array_push($Caracteristicas, $texto);
@@ -27,7 +27,7 @@
 		foreach ($file as $key => $value) {
 			$texto = substr($value, 0, $x);
 			if(in_array($texto, $Ficheros)){
-				echo "<h1>Error</h1>";
+				echo "<h1>Error, hay algun fichero .jpg repetido. [imatges.txt]</h1>";
 				exit;
 			}else{
 				array_push($Ficheros, $texto);
@@ -51,6 +51,7 @@
 			"User_12.jpg" => "User12"
 		];
 		$RandomImgServer = array_rand($ArrayImagenes);
+		
 		echo "<div id='tableroCartas'>";
 		echo "<div class='carta-box'>";
 			echo "<div class='carta'>";
