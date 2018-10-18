@@ -40,3 +40,14 @@ function preguntaComboBox(){
 		document.getElementById("mensaje").innerHTML = "Error";
 	}
 }
+
+/*
+function girarImagen(){
+	document.getElementById("carta").style.WebkitTransform = "rotateY(180deg)";
+}*/
+
+function cambia(src){
+    src = "";
+    src = "ParteTrasera.png";
+    return src;
+}

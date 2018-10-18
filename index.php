@@ -73,10 +73,10 @@
    				}else{
     				array_push($ImagenesUtilizadas, $RandomTablero);
     				echo "<td>";
-					echo "<div class='carta-box'>";
+					echo "<div id='carta' class='carta-box'>";
 						echo "<div class='carta'>";
 							echo "<div class='cara'>";
-								echo "<img src='Images/$RandomTablero' width='150' height='150'>";
+								echo "<img src='Images/$RandomTablero' width='150' height='150' onclick='this.src = cambia(this.src)';>";
 							echo "</div>";
 							echo "<div class='cara detras'>";
 								echo "<img src='ParteTrasera.png' width='150' height='150'>";
