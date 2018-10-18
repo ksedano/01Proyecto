@@ -6,7 +6,16 @@
 }
  
 .carta-box:hover .carta {
-    transform: rotateY(180deg);
+  -moz-box-shadow: 0px 0px 30px black;
+  -webkit-box-shadow: 0px 0px 30px black;
+  box-shadow: 0px 0px 30px black;
+  transform: rotateY(180deg);
+  /*cursor: pointer;*/
+       
+  padding: 0px;
+  width: 150px;
+  height: 150px;
+  margin: 0px;
 }
  
 .carta {

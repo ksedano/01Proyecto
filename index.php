@@ -20,7 +20,6 @@
 				array_push($Caracteristicas, $texto);
 			}
 		}
-
 		//COMPROBAMOS QUE NO HAYAN NOMBRES DE FICHEROS REPETIDOS
 		$Ficheros = [];
 		$x=10;
@@ -37,7 +36,6 @@
 				$x+=1;
 			}
 		}
-
 		$ArrayImagenes = [
 			"User_1.jpg" => "User1",
 			"User_2.jpg" => "User2",
@@ -52,11 +50,8 @@
 			"User_11.jpg" => "User11",
 			"User_12.jpg" => "User12"
 		];
-
 		$RandomImgServer = array_rand($ArrayImagenes);
-
 		echo "<div id='tableroCartas'>";
-
 		echo "<div class='carta-box'>";
 			echo "<div class='carta'>";
 				echo "<div class='cara'>";
@@ -67,9 +62,7 @@
 				echo "</div>";
 			echo "</div>";
 		echo "</div>";
-
     	echo "<table class='table' id='Cartas'>";
-
     	$ImagenesUtilizadas = [];
       	for ($i=0; $i < 3; $i++) {
         	echo "<tr>";
@@ -101,21 +94,20 @@
 		echo "<option id='Pelo3' class='Pelo'>¿Tiene el pelo rubio?</option>";
 		echo "<option id='Pelo4' class='Pelo'>¿Tiene el pelo castaño?</option>";
 		echo "</select>";
-
 		echo "<select name='Combo2' size=1 onChange='ComboBox2Selec();'>";
 		echo "<option id='Gafas1' selected='true'>¿Lleva gafas o no?</option>";
 		echo "<option id='Gafas2' class='Gafas'>¿Lleva gafas?</option>";
 		echo "<option id='Gafas3' class='Gafas'>¿No lleva gafas?</option>";
 		echo "</select>";
-
 		echo "<select name='Combo3' size=1 onChange='ComboBox3Selec();'>";
 		echo "<option id='Sexo1' selected='true'>¿De que sexo es?</option>";
 		echo "<option id='Sexo2' class='Sexo'>¿Es hombre?</option>";
 		echo "<option id='Sexo3' class='Sexo'>¿Es mujer?</option>";
 		echo "</select>";
-
 		echo "<button type='button' id='preguntar' onclick='preguntaComboBox()'>Preguntar</button>";
 		echo "<p id='mensaje'></p>"
 	?>
 </body>
 </html>
+
+
