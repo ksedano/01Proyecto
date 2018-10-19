@@ -1,46 +1,25 @@
 document.getElementById("preguntar").disabled=true;
 
-//FUNCION COMBOBOX PELO
-function ComboBox1Selec(){
-	if(document.getElementById("Pelo2")||document.getElementById("Pelo3")||
-	document.getElementById("Pelo4").selected==true){
-		document.getElementById("preguntar").disabled=false;
-	}if(document.getElementById("Pelo1").selected==true){
-		document.getElementById("preguntar").disabled=true;
-	}
-}
+//FUNCION SELEC COMBOBOX
 
-//FUNCION COMBOBOX GAFAS
-function ComboBox2Selec(){
-	if(document.getElementById("Gafas2")||document.getElementById("Gafas3").selected==true){
-		document.getElementById("preguntar").disabled=false;
-	}if(document.getElementById("Gafas1").selected==true){
-		document.getElementById("preguntar").disabled=true;
-	}
-}
+var valuePelo = document.getElementById('Pelo1').value;
+var valueGafas = document.getElementById('Gafas1').value;
+var valueSexo = document.getElementById('Sexo1').value;
 
-//FUNCION COMBOBOX SEXO
-function ComboBox3Selec(){
-	if(document.getElementById("Sexo2")||document.getElementById("Sexo3").selected==true){
+function ComboBoxSelec(){
+	if(valuePelo!="null" || valueGafas!="null" || valueSexo!="null"){
 		document.getElementById("preguntar").disabled=false;
-	}if(document.getElementById("Sexo1").selected==true){
-		document.getElementById("preguntar").disabled=true;
 	}
 }
 
 //FUNCION PREGUNTA COMBOBOX
 function preguntaComboBox(){
-	if(document.getElementByClassName("Pelo") && document.getElementByClassName("Gafas").selected==true){
-		document.getElementById("mensaje").innerHTML = "Error";
-	}
-	if(document.getElementByClassName("Gafas") && document.getElementByClassName("Sexo").selected==true){
-		document.getElementById("mensaje").innerHTML = "Error";
-	}
-	if(document.getElementByClassName("Sexo") && document.getElementByClassName("Pelo").selected==true){
-		document.getElementById("mensaje").innerHTML = "Error";
+	if(valuePelo && valueGafas!="null" || valueGafas && valueSexo!="null" || valueSexo && valuePelo!="null"){
+		document.getElementById("mensaje").innerHTML = "Error, has seleccionado dos preguntas o mas a la vez.";
 	}
 }
 
+//GIRAR CARTA
 function girarCarta(card){
 	if(card.className == 'flip-card'){
 		card.classList.toggle('is-flipped');

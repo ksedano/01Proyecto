@@ -8,7 +8,7 @@
 </head>
 <body>
 	<?php
-		//COMPROBAMOS QUE NO HAYAN CARACTERISTICAS REPETIDAS
+		/*COMPROBAMOS QUE NO HAYAN CARACTERISTICAS REPETIDAS*/
 		$Caracteristicas = [];
 		$file = file("imatges.txt");
 		foreach ($file as $key => $value) {
@@ -20,7 +20,7 @@
 				array_push($Caracteristicas, $texto);
 			}
 		}
-		//COMPROBAMOS QUE NO HAYAN NOMBRES DE FICHEROS REPETIDOS
+		/*COMPROBAMOS QUE NO HAYAN NOMBRES DE FICHEROS REPETIDOS*/
 		$Ficheros = [];
 		$x=10;
 		$count=1;
@@ -64,31 +64,21 @@
 		echo "</div>";
     	echo "<table class='table' id='Cartas'>";
     	$ImagenesUtilizadas = [];
-      	for ($i=0; $i < 4; $i++) {
+      	for ($i=0; $i < 3; $i++) {
         	echo "<tr>";
-        	for ($x=0; $x < 3; $x++) {
+        	for ($x=0; $x < 4; $x++) {
          		$RandomTablero = array_rand($ArrayImagenes);
 				if(in_array($RandomTablero, $ImagenesUtilizadas)){
             		$x-=1;
    				}else{
     				array_push($ImagenesUtilizadas, $RandomTablero);
-    				/*echo "<td>";
-					echo "<div id='carta' class='carta-box'>";
-						echo "<div class='carta'>";
-							echo "<div class='cara'>";
-								echo "<img src='Images/$RandomTablero' width='150' height='150' onclick='this.src = cambia(this.src)';>";
-							echo "</div>";
-							echo "<div class='cara detras'>";
-								echo "<img src='ParteTrasera.png' width='150' height='150'>";
-							echo "</div>";
-						echo "</div>";
-					echo "</td>";*/
 					echo "<td>";
 						echo "<div class='flip-card' onclick='girarCarta(this);'>";
 							echo "<div class='front-face image'>";
 								echo "<img src='Images/$RandomTablero' width='150' height='150'>";
 							echo "</div>";
 							echo "<div class='back-face'>";
+								echo "<img src='ParteTrasera.png' width='150' height='150'>";
 							echo "</div>";
 						echo "</div>";
 					echo "</td>";
@@ -97,24 +87,24 @@
         	echo "</tr>";
       	}
       	echo "</table></div>";
-      	echo "<select name='Combo1' size=1 onChange='ComboBox1Selec();'>";
-		echo "<option id='Pelo1' selected='true'>¿De que color tiene el pelo?</option>";
-		echo "<option id='Pelo2' class='Pelo'>¿Tiene el pelo moreno?</option>";
-		echo "<option id='Pelo3' class='Pelo'>¿Tiene el pelo rubio?</option>";
-		echo "<option id='Pelo4' class='Pelo'>¿Tiene el pelo castaño?</option>";
+      	echo "<select id='Pelo' name='Combo1' size=1 onChange='ComboBoxSelec();'>";
+		echo "<option id='Pelo1' value='null'>PELO</option>";
+		echo "<option id='Pelo2' class='Pelo' value='moreno'>¿Tiene el pelo moreno?</option>";
+		echo "<option id='Pelo3' class='Pelo' value='rubio'>¿Tiene el pelo rubio?</option>";
+		echo "<option id='Pelo4' class='Pelo' value='castaño'>¿Tiene el pelo castaño?</option>";
 		echo "</select>";
-		echo "<select name='Combo2' size=1 onChange='ComboBox2Selec();'>";
-		echo "<option id='Gafas1' selected='true'>¿Lleva gafas o no?</option>";
-		echo "<option id='Gafas2' class='Gafas'>¿Lleva gafas?</option>";
-		echo "<option id='Gafas3' class='Gafas'>¿No lleva gafas?</option>";
+		echo "<select id='Gafas' name='Combo2' size=1 onChange='ComboBoxSelec();'>";
+		echo "<option id='Gafas1' value='null'>GAFAS</option>";
+		echo "<option id='Gafas2' class='Gafas' value='gafas'>¿Lleva gafas?</option>";
+		echo "<option id='Gafas3' class='Gafas' value='nogafas'>¿No lleva gafas?</option>";
 		echo "</select>";
-		echo "<select name='Combo3' size=1 onChange='ComboBox3Selec();'>";
-		echo "<option id='Sexo1' selected='true'>¿De que sexo es?</option>";
-		echo "<option id='Sexo2' class='Sexo'>¿Es hombre?</option>";
-		echo "<option id='Sexo3' class='Sexo'>¿Es mujer?</option>";
+		echo "<select id='Sexo' name='Combo3' size=1 onChange='ComboBoxSelec();'>";
+		echo "<option id='Sexo1' value='null'>SEXO</option>";
+		echo "<option id='Sexo2' class='Sexo' value='hombre'>¿Es hombre?</option>";
+		echo "<option id='Sexo3' class='Sexo' value='mujer'>¿Es mujer?</option>";
 		echo "</select>";
 		echo "<button type='button' id='preguntar' onclick='preguntaComboBox()'>Preguntar</button>";
-		echo "<p id='mensaje'></p>"
+		echo "<p id='mensaje'></p>";
 	?>
 </body>
 </html>
