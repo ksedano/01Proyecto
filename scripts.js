@@ -41,13 +41,8 @@ function preguntaComboBox(){
 	}
 }
 
-/*
-function girarImagen(){
-	document.getElementById("carta").style.WebkitTransform = "rotateY(180deg)";
-}*/
-
-function cambia(src){
-    src = "";
-    src = "ParteTrasera.png";
-    return src;
+function girarCarta(card){
+	if(card.className == 'flip-card'){
+		card.classList.toggle('is-flipped');
+	}
 }

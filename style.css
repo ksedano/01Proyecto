@@ -9,8 +9,8 @@
   -moz-box-shadow: 0px 0px 30px black;
   -webkit-box-shadow: 0px 0px 30px black;
   box-shadow: 0px 0px 30px black;
-  /*transform: rotateY(180deg);
-  cursor: pointer;*/
+  transform: rotateY(180deg);
+  cursor: pointer;
        
   padding: 0px;
   width: 150px;
@@ -30,4 +30,37 @@
  
 .cara.detras {
   transform: rotateY(180deg);
+}
+
+/*<<------------GIRAR CARTAS------------->>*/
+
+.back-face{
+  transform: rotateY(180deg);
+  background-image: url('ParteTrasera.png');
+  background-size: cover;
+  width: 150px;
+  height: 150px;
+}
+
+.flip-card .front-face, .flip-card .back-face{
+  transition: transform 500ms;
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.flip-card{
+
+  width: 150px;
+  height: 150px;
+  margin: 2px;
+  position: relative;
+}
+
+.flip-card.is-flipped{
+  transform: rotateY(180deg);
+  transition: transform 1.5s;
+  transform-style: preserve-3d;
 }
