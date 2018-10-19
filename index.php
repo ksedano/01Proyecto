@@ -14,7 +14,7 @@
 		foreach ($file as $key => $value) {
 			$texto = strrchr($value, ":");
 			if(in_array($texto, $Caracteristicas)){
-				echo "<h1>Error, algunos personajes tienen caracteristicas identicas. [imatges.txt]</h1>";
+				echo "<h1>Error</h1>";
 				exit;
 			}else{
 				array_push($Caracteristicas, $texto);
@@ -27,7 +27,7 @@
 		foreach ($file as $key => $value) {
 			$texto = substr($value, 0, $x);
 			if(in_array($texto, $Ficheros)){
-				echo "<h1>Error, hay algun fichero .jpg repetido. [imatges.txt]</h1>";
+				echo "<h1>Error</h1>";
 				exit;
 			}else{
 				array_push($Ficheros, $texto);
@@ -51,7 +51,6 @@
 			"User_12.jpg" => "User12"
 		];
 		$RandomImgServer = array_rand($ArrayImagenes);
-		
 		echo "<div id='tableroCartas'>";
 		echo "<div class='carta-box'>";
 			echo "<div class='carta'>";
@@ -65,15 +64,15 @@
 		echo "</div>";
     	echo "<table class='table' id='Cartas'>";
     	$ImagenesUtilizadas = [];
-      	for ($i=0; $i < 3; $i++) {
+      	for ($i=0; $i < 4; $i++) {
         	echo "<tr>";
-        	for ($x=0; $x < 4; $x++) {
+        	for ($x=0; $x < 3; $x++) {
          		$RandomTablero = array_rand($ArrayImagenes);
 				if(in_array($RandomTablero, $ImagenesUtilizadas)){
             		$x-=1;
    				}else{
     				array_push($ImagenesUtilizadas, $RandomTablero);
-    				echo "<td>";
+    				/*echo "<td>";
 					echo "<div id='carta' class='carta-box'>";
 						echo "<div class='carta'>";
 							echo "<div class='cara'>";
@@ -81,6 +80,15 @@
 							echo "</div>";
 							echo "<div class='cara detras'>";
 								echo "<img src='ParteTrasera.png' width='150' height='150'>";
+							echo "</div>";
+						echo "</div>";
+					echo "</td>";*/
+					echo "<td>";
+						echo "<div class='flip-card' onclick='girarCarta(this);'>";
+							echo "<div class='front-face image'>";
+								echo "<img src='Images/$RandomTablero' width='150' height='150'>";
+							echo "</div>";
+							echo "<div class='back-face'>";
 							echo "</div>";
 						echo "</div>";
 					echo "</td>";
@@ -110,5 +118,3 @@
 	?>
 </body>
 </html>
-
-
