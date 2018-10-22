@@ -1,14 +1,12 @@
-document.getElementById("preguntar").disabled=true;
-
 //FUNCION SELEC COMBOBOX
 
-var valuePelo = document.getElementById('Pelo1').value;
-var valueGafas = document.getElementById('Gafas1').value;
-var valueSexo = document.getElementById('Sexo1').value;
+var valuePelo = document.getElementById("Pelo1").value;
+var valueGafas = document.getElementById("Gafas").value;
+var valueSexo = document.getElementById("Sexo1").value;
 
 function ComboBoxSelec(){
-	if(valuePelo!="null" || valueGafas!="null" || valueSexo!="null"){
-		document.getElementById("preguntar").disabled=false;
+	if(valuePelo!="null"){
+		document.getElementById("mensaje").innerText = "";
 	}
 }
 

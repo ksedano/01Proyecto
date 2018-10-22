@@ -36,21 +36,19 @@
 				$x+=1;
 			}
 		}
-		$ArrayImagenes = [
-			"User_1.jpg" => "User1",
-			"User_2.jpg" => "User2",
-			"User_3.jpg" => "User3",
-			"User_4.jpg" => "User4",
-			"User_5.jpg" => "User5",
-			"User_6.jpg" => "User6",
-			"User_7.jpg" => "User7",
-			"User_8.jpg" => "User8",
-			"User_9.jpg" => "User9",
-			"User_10.jpg" => "User10",
-			"User_11.jpg" => "User11",
-			"User_12.jpg" => "User12"
-		];
-		$RandomImgServer = array_rand($ArrayImagenes);
+
+		//La Array con todos los elementos y caracteristicas.
+		$Array = array();
+
+		// Bucle / Inserción de datos Array
+		foreach($file as $Linea) {
+		$Clean = str_replace(":", "", $Linea);
+		$Clean2 = str_replace(",", "", $Clean);
+		$Clean3 = explode(" ", $Clean2);
+		array_push($Array, $Clean3);
+		}
+
+		$RandomServer = random_int(0, 11);
 		echo "<div id='tableroCartas'>";
 		echo "<div class='carta-box'>";
 			echo "<div class='carta'>";
@@ -58,7 +56,7 @@
 					echo "<img src='ParteTrasera.png' width='150' height='150'>";
 				echo "</div>";
 				echo "<div class='cara detras'>";
-					echo "<img src='Images/$RandomImgServer' width='150' height='150'>";
+					echo '<img src="Images/'.$Array[$RandomServer][0].'" ulleres="'.$Array[$RandomServer][3].'" cabell="'.$Array[$RandomServer][5].'" sexe="'.$Array[$RandomServer][7].'" width="150" height="150">';
 				echo "</div>";
 			echo "</div>";
 		echo "</div>";
@@ -67,15 +65,15 @@
       	for ($i=0; $i < 3; $i++) {
         	echo "<tr>";
         	for ($x=0; $x < 4; $x++) {
-         		$RandomTablero = array_rand($ArrayImagenes);
-				if(in_array($RandomTablero, $ImagenesUtilizadas)){
+         		$Random = random_int(0, 11);
+       			if(in_array($Random, $ImagenesUtilizadas)){
             		$x-=1;
    				}else{
-    				array_push($ImagenesUtilizadas, $RandomTablero);
+    				array_push($ImagenesUtilizadas, $Random);
 					echo "<td>";
 						echo "<div class='flip-card' onclick='girarCarta(this);'>";
 							echo "<div class='front-face image'>";
-								echo "<img src='Images/$RandomTablero' width='150' height='150'>";
+								echo '<img src="Images/'.$Array[$Random][0].'" ulleres="'.$Array[$Random][3].'" cabell="'.$Array[$Random][5].'" sexe="'.$Array[$Random][7].'" width="150" height="150">';
 							echo "</div>";
 							echo "<div class='back-face'>";
 								echo "<img src='ParteTrasera.png' width='150' height='150'>";
