@@ -1,4 +1,4 @@
-.carta-box {
+/*.carta-box {
   width: 150px;
   height: 150px;
   position: relative;
@@ -31,7 +31,7 @@
   transform: rotateY(180deg);
 }
 
-/*<<------------GIRAR CARTAS------------->>*/
+<<------------GIRAR CARTAS------------->>*/
 
 .back-face{
   transform: rotateY(180deg);

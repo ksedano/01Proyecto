@@ -50,14 +50,12 @@
 
 		$RandomServer = random_int(0, 11);
 		echo "<div id='tableroCartas'>";
-		echo "<div class='carta-box'>";
-			echo "<div class='carta'>";
-				echo "<div class='cara'>";
-					echo "<img src='ParteTrasera.png' width='150' height='150'>";
-				echo "</div>";
-				echo "<div class='cara detras'>";
-					echo '<img src="Images/'.$Array[$RandomServer][0].'" ulleres="'.$Array[$RandomServer][3].'" cabell="'.$Array[$RandomServer][5].'" sexe="'.$Array[$RandomServer][7].'" width="150" height="150">';
-				echo "</div>";
+		echo "<div class='flip-card'>";
+			echo "<div class='front-face image'>";
+				echo "<img src='ParteTrasera.png' width='150' height='150'>";
+			echo "</div>";
+			echo "<div class='back-face'>";
+				echo '<img src="Images/'.$Array[$RandomServer][0].'" ulleres="'.$Array[$RandomServer][3].'" cabell="'.$Array[$RandomServer][5].'" sexe="'.$Array[$RandomServer][7].'" width="150" height="150">';
 			echo "</div>";
 		echo "</div>";
     	echo "<table class='table' id='Cartas'>";
@@ -86,18 +84,18 @@
       	}
       	echo "</table></div>";
       	echo "<select id='Pelo' name='Combo1' size=1 onChange='ComboBoxSelec();'>";
-		echo "<option id='Pelo1' value='null'>PELO</option>";
+		echo "<option id='Pelo1' value=0>PELO</option>";
 		echo "<option id='Pelo2' class='Pelo' value='moreno'>¿Tiene el pelo moreno?</option>";
 		echo "<option id='Pelo3' class='Pelo' value='rubio'>¿Tiene el pelo rubio?</option>";
 		echo "<option id='Pelo4' class='Pelo' value='castaño'>¿Tiene el pelo castaño?</option>";
 		echo "</select>";
 		echo "<select id='Gafas' name='Combo2' size=1 onChange='ComboBoxSelec();'>";
-		echo "<option id='Gafas1' value='null'>GAFAS</option>";
+		echo "<option id='Gafas1' value=0>GAFAS</option>";
 		echo "<option id='Gafas2' class='Gafas' value='gafas'>¿Lleva gafas?</option>";
 		echo "<option id='Gafas3' class='Gafas' value='nogafas'>¿No lleva gafas?</option>";
 		echo "</select>";
 		echo "<select id='Sexo' name='Combo3' size=1 onChange='ComboBoxSelec();'>";
-		echo "<option id='Sexo1' value='null'>SEXO</option>";
+		echo "<option id='Sexo1' value=0>SEXO</option>";
 		echo "<option id='Sexo2' class='Sexo' value='hombre'>¿Es hombre?</option>";
 		echo "<option id='Sexo3' class='Sexo' value='mujer'>¿Es mujer?</option>";
 		echo "</select>";
