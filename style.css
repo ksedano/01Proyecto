@@ -37,28 +37,3 @@
   transition: transform 1.5s;
   transform-style: preserve-3d;
 }
-
-/*--- GIRAR CARTA SERVER---*/
-
-.flip-card2 .front-face, .flip-card2 .back-face{
-  transition: transform 500ms;
-  display: block;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  backface-visibility: hidden;
-}
-
-.flip-card2{
-
-  width: 150px;
-  height: 150px;
-  margin: 2px;
-  position: relative;
-}
-
-.flip-card2.is-flipped{
-  transform: rotateY(180deg);
-  transition: transform 1.5s;
-  transform-style: preserve-3d;
-}

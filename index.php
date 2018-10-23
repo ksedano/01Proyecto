@@ -50,7 +50,7 @@
 
 		$RandomServer = random_int(0, 11);
 		echo "<div id='tableroCartas'>";
-		echo "<div class='flip-card2'>";
+		echo "<div class='flip-card' id='cartaServer'>";
 			echo "<div class='front-face image'>";
 				echo "<img src='ParteTrasera.png' width='150' height='150'>";
 			echo "</div>";
@@ -69,7 +69,7 @@
    				}else{
     				array_push($ImagenesUtilizadas, $Random);
 					echo "<td>";
-						echo "<div class='flip-card' onclick='girarCarta(this);'>";
+						echo "<div class='flip-card' onclick='girarCarta(this, cartaServer);'>";
 							echo "<div class='front-face image'>";
 								echo '<img src="Images/'.$Array[$Random][0].'" ulleres="'.$Array[$Random][3].'" cabell="'.$Array[$Random][5].'" sexe="'.$Array[$Random][7].'" width="150" height="150">';
 							echo "</div>";

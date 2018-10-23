@@ -18,17 +18,17 @@ function preguntaComboBox(){
 	}
 }
 
-//GIRAR CARTA
+//GIRAR CARTAS
 contador=0;
 
-function girarCarta(card){
+function girarCarta(card, cardserver){
 	contador++;
 	if(card.className == 'flip-card'){
 		card.classList.toggle('is-flipped');
-		document.getElementById("mensaje").innerText = contador;
-	}if(contador==11){
-		if(card.className == 'flip-card2'){
-			card.classList.toggle('is-flipped');
+		if(contador==11){
+			if(cardserver.className == 'flip-card'){
+				cardserver.classList.toggle('is-flipped');
+			}
 		}
 	}
 }
