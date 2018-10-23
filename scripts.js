@@ -26,9 +26,9 @@ function girarCarta(card){
 	if(card.className == 'flip-card'){
 		card.classList.toggle('is-flipped');
 		document.getElementById("mensaje").innerText = contador;
-	}/*if(contador==11){
-		if(card.className == 'flip-card'){
+	}if(contador==11){
+		if(card.className == 'flip-card2'){
 			card.classList.toggle('is-flipped');
 		}
-	}*/
+	}
 }

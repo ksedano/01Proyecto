@@ -1,37 +1,4 @@
-/*.carta-box {
-  width: 150px;
-  height: 150px;
-  position: relative;
-  perspective: 1000px;
-}
- 
-.carta-box:hover .carta {
-  -moz-box-shadow: 0px 0px 30px black;
-  -webkit-box-shadow: 0px 0px 30px black;
-  box-shadow: 0px 0px 30px black;
-  cursor: pointer;
-       
-  padding: 0px;
-  width: 150px;
-  height: 150px;
-  margin: 0px;
-}
- 
-.carta {
-  transform-style: preserve-3d;
-  transition: all 1s linear;
-}
- 
-.cara {
-  position: absolute;
-  backface-visibility: hidden;
-}
- 
-.cara.detras {
-  transform: rotateY(180deg);
-}
-
-<<------------GIRAR CARTAS------------->>*/
+/*<<------------GIRAR CARTAS------------->>*/
 
 .back-face{
   transform: rotateY(180deg);
@@ -66,6 +33,31 @@
 }
 
 .flip-card.is-flipped{
+  transform: rotateY(180deg);
+  transition: transform 1.5s;
+  transform-style: preserve-3d;
+}
+
+/*--- GIRAR CARTA SERVER---*/
+
+.flip-card2 .front-face, .flip-card2 .back-face{
+  transition: transform 500ms;
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.flip-card2{
+
+  width: 150px;
+  height: 150px;
+  margin: 2px;
+  position: relative;
+}
+
+.flip-card2.is-flipped{
   transform: rotateY(180deg);
   transition: transform 1.5s;
   transform-style: preserve-3d;

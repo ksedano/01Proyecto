@@ -50,7 +50,7 @@
 
 		$RandomServer = random_int(0, 11);
 		echo "<div id='tableroCartas'>";
-		echo "<div class='flip-card'>";
+		echo "<div class='flip-card2'>";
 			echo "<div class='front-face image'>";
 				echo "<img src='ParteTrasera.png' width='150' height='150'>";
 			echo "</div>";
