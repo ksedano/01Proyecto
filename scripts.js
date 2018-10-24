@@ -4,14 +4,6 @@ var valuePelo = document.getElementById("Pelo");
 var valueGafas = document.getElementById("Gafas");
 var valueSexo = document.getElementById("Sexo");
 
-//BOTON EASY
-function ComboBoxSelec(){
-	document.getElementById("BotonEasy").style.display='none';
-}
-
-function ComboBoxSelec(){
-	document.getElementById("BotonEasy").style.display='none';
-}
 
 //FUNCION PREGUNTA COMBOBOX
 var countPreguntas=0;
@@ -82,18 +74,28 @@ function preguntaComboBox(){
 }
 
 //GIRAR CARTAS
-count=0;
+
+var count=0;
+var cartaServidor = imagenServer.getAttribute("src");
+var arrayElegidas = [];
 
 function girarCarta(card, cardserver){
-	count++;
+	count+=1;
 	if(card.className == 'flip-card'){
 		card.classList.toggle('is-flipped');
 		var sonido = new Audio("sonido.mp3");
   		sonido.play();
+  		var cartasrc = card.childNodes[0].firstChild.getAttribute("src");
+  		arrayElegidas.push(cartasrc);
   		
 		if(count==11){
 			if(cardserver.className == 'flip-card'){
 				cardserver.classList.toggle('is-flipped');
+				if(arrayElegidas.includes(cartaServidor)){
+					document.getElementById("mensaje").innerText = "!Has perdido!";
+				}else{
+					document.getElementById("mensaje").innerText = "!Has ganado!";
+				}
 			}
 		}
 	}

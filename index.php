@@ -68,7 +68,7 @@
 					echo "<td>";
 						echo "<div class='flip-card' onclick='girarCarta(this, cartaServer);'>";
 							echo "<div class='front-face image'>";
-								echo '<img id="Imagen'.$Random.'" class="Carta" src="Images/'.$Array[$Random][0].'" ulleres="'.$Array[$Random][3].'" cabell="'.$Array[$Random][5].'" sexe="'.$Array[$Random][7].'" width="150" height="150">';
+								echo '<img src="Images/'.$Array[$Random][0].'" ulleres="'.$Array[$Random][3].'" cabell="'.$Array[$Random][5].'" sexe="'.$Array[$Random][7].'" width="150" height="150">';
 							echo "</div>";
 							echo "<div class='back-face'>";
 								echo "<img src='ParteTrasera.png' width='150' height='150'>";
