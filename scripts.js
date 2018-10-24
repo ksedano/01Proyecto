@@ -9,6 +9,10 @@ function ComboBoxSelec(){
 	document.getElementById("BotonEasy").style.display='none';
 }
 
+function ComboBoxSelec(){
+	document.getElementById("BotonEasy").style.display='none';
+}
+
 //FUNCION PREGUNTA COMBOBOX
 var countPreguntas=0;
 var contador=document.getElementById("contador");
