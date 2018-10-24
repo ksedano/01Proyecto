@@ -73,6 +73,22 @@ function preguntaComboBox(){
 	}
 }
 
+//ALERT REGISTRAR RECORD
+function winner() {
+    var registre = confirm("¿Deseas registrar tu record?");
+    if(registre == true){
+        var person = prompt("Introduce tu nombre de usuario:\n(Mín. 6 caracteres)");
+        if(person == null || person == "" || person.length < 6){
+            alert("Por favor, introduce un nombre de usuario válido.");
+            winner();
+        }else{
+            alert("¡Enhorabuena "+person+"! Gracias por jugar.");
+		}
+    }else{
+        alert("Lo has hecho muy bien. ENHORABUENA!");
+    }
+}
+
 //GIRAR CARTAS
 
 var count=0;
@@ -87,14 +103,12 @@ function girarCarta(card, cardserver){
   		sonido.play();
   		var cartasrc = card.childNodes[0].firstChild.getAttribute("src");
   		arrayElegidas.push(cartasrc);
-  		
 		if(count==11){
 			if(cardserver.className == 'flip-card'){
 				cardserver.classList.toggle('is-flipped');
 				if(arrayElegidas.includes(cartaServidor)){
-					document.getElementById("mensaje").innerText = "!Has perdido!";
 				}else{
-					document.getElementById("mensaje").innerText = "!Has ganado!";
+					setTimeout("winner()",2000);
 				}
 			}
 		}
