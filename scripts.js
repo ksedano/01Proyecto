@@ -6,6 +6,8 @@ var valueSexo = document.getElementById("Sexo");
 
 
 //FUNCION PREGUNTA COMBOBOX
+var countPreguntas=0;
+
 function preguntaComboBox(){
 	if(valuePelo.value==0 && valueGafas.value==0 && valueSexo.value==0){
 		document.getElementById("mensaje").innerText = "Selecciona una pregunta.";
@@ -15,17 +17,22 @@ function preguntaComboBox(){
 		valuePelo.value=0;
 		valueGafas.value=0;
 		valueSexo.value=0;
+	}if(valuePelo.value!=0 && valueGafas.value==0 && valueSexo.value==0 || valueGafas.value!=0 && valuePelo.value==0 && valueSexo.value==0 ||
+		valueSexo.value!=0 && valuePelo.value==0 && valueGafas.value==0){
+		document.getElementById("contador").innerText = "Contador de preguntas: "+(countPreguntas+=1);
 	}
 }
 
 //GIRAR CARTAS
-contador=0;
+count=0;
 
 function girarCarta(card, cardserver){
-	contador++;
+	count++;
 	if(card.className == 'flip-card'){
 		card.classList.toggle('is-flipped');
-		if(contador==11){
+		var sonido = new Audio("sonido.mp3");
+  		sonido.play();
+		if(count==11){
 			if(cardserver.className == 'flip-card'){
 				cardserver.classList.toggle('is-flipped');
 			}

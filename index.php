@@ -36,10 +36,8 @@
 				$x+=1;
 			}
 		}
-
 		//La Array con todos los elementos y caracteristicas.
 		$Array = array();
-
 		// Bucle / Inserción de datos Array
 		foreach($file as $Linea) {
 		$Clean = str_replace(":", "", $Linea);
@@ -47,7 +45,6 @@
 		$Clean3 = explode(" ", $Clean2);
 		array_push($Array, $Clean3);
 		}
-
 		$RandomServer = random_int(0, 11);
 		echo "<div id='tableroCartas'>";
 		echo "<div class='flip-card' id='cartaServer'>";
@@ -100,7 +97,7 @@
 		echo "<option id='Sexo3' class='Sexo' value='mujer'>¿Es mujer?</option>";
 		echo "</select>";
 		echo "<button type='button' id='preguntar' onclick='preguntaComboBox()'>Preguntar</button>";
-		echo "<p id='mensaje'></p>";
+		echo "<p id='mensaje'></p><p id='contador'>Contador de preguntas:</p>";
 	?>
 </body>
 </html>
