@@ -59,7 +59,7 @@
 				echo '<img id="ImagenServer" src="Images/'.$Array[$RandomServer][0].'" ulleres="'.$Array[$RandomServer][3].'" cabell="'.$Array[$RandomServer][5].'" sexe="'.$Array[$RandomServer][7].'" width="150" height="150">';
 			echo "</div>";
 		echo "</div>";
-    	echo "<table class='table' id='Cartas'>";
+    	echo "<table class='table' id='Cartas' background='tapete.jpg'>";
     	$ImagenesUtilizadas = [];
       	for ($i=0; $i < 4; $i++) {
         	echo "<tr>";
