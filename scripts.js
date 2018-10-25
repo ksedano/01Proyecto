@@ -119,8 +119,15 @@ function winner() {
 }
 
 //ALERTA HAS PERDIDO
+
+function winner() {
+
+	window.open("Win.php","_self");
+}
+
 function loser() {
-    var perdedor = confirm("Has perdido...");
+
+	window.open("Lose.php","_self");
 }
 
 //GIRAR CARTAS
