@@ -7,6 +7,11 @@
 	<script type="text/javascript" defer src="scripts.js"></script>
 </head>
 <body>
+
+	<form>
+		<p><input type="button" value="EASY " id="BotonEasy" onclick="DeshabilitarEasy()" /></p>
+	</form>
+	<canvas id="canvas" class="Fireworks"></canvas>
 	<?php
 		/*COMPROBAMOS QUE NO HAYAN CARACTERISTICAS REPETIDAS*/
 		$Caracteristicas = [];
@@ -96,8 +101,9 @@
 		echo "<option id='Sexo2' class='Sexo' value='hombre'>¿Es hombre?</option>";
 		echo "<option id='Sexo3' class='Sexo' value='mujer'>¿Es mujer?</option>";
 		echo "</select>";
-		echo "<button type='button' id='preguntar' onclick='preguntaComboBox()'>Preguntar</button>";
+		echo "<button type='button' id='preguntar' onclick='preguntaComboBox(); PreguntaSeguro();'>Preguntar</button>";
 		echo "<p id='mensaje'></p><p id='contador'>Contador de preguntas:</p>";
+		echo"<p id='mensajeSeguro'></p>";
 	?>
 </body>
 </html>

@@ -4,6 +4,37 @@ var valuePelo = document.getElementById("Pelo");
 var valueGafas = document.getElementById("Gafas");
 var valueSexo = document.getElementById("Sexo");
 
+//OCULTAR BOTON EASY
+
+function ComboBoxSelec(){
+	document.getElementById("BotonEasy").style.display='none';
+}
+
+//DESHABILITAR BOTON EASY
+
+function DeshabilitarEasy(){
+			document.getElementById("BotonEasy").disabled=true;
+
+}
+
+//PREGUNTA Y VUELVE A PREGUNTAR	
+	var pregunta=0;
+	var cartanogirada=0;
+
+
+function PreguntaSeguro(){
+
+	if(pregunta==1 && cartanogirada==count){
+		document.getElementById("mensajeSeguro").innerHTML = "¿Estas Seguro que no quieres girar una carta?";
+	}else if(pregunta>=1 && cartanogirada==count){
+		//esto me permite que no se repita
+
+	}else{
+		pregunta=0;
+	}
+	cartanogirada=count;
+	pregunta+=1;
+}	
 
 //FUNCION PREGUNTA COMBOBOX
 var countPreguntas=0;
@@ -114,6 +145,7 @@ function girarCarta(card, cardserver){
 		}
 	}
 }
+/*
 
 //FUEGOS ARTIFICIALES
 
@@ -264,3 +296,5 @@ function windowResized(){
 	ctx.fillStyle = "#000000";
 	ctx.fillRect(0, 0, width, height);
 }
+
+*/

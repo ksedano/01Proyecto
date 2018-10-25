@@ -37,3 +37,30 @@
   transition: transform 1.5s;
   transform-style: preserve-3d;
 }
+/*<<------------Fireworks------------>>*/
+
+body{
+  margin: 0px;
+  height: 100%;
+  overflow-y: hidden;
+}
+
+/*<<------------Contenedores HAS GANADO----------->>*/
+
+.contenedor{
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+ 
+.texto-encima{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+.centrado{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
