@@ -11,7 +11,6 @@
 	<form>
 		<p><input type="button" value="EASY " id="BotonEasy" onclick="DeshabilitarEasy()" /></p>
 	</form>
-	<canvas id="canvas" class="Fireworks"></canvas>
 	<?php
 		/*COMPROBAMOS QUE NO HAYAN CARACTERISTICAS REPETIDAS*/
 		$Caracteristicas = [];
@@ -62,9 +61,9 @@
 		echo "</div>";
     	echo "<table class='table' id='Cartas'>";
     	$ImagenesUtilizadas = [];
-      	for ($i=0; $i < 3; $i++) {
+      	for ($i=0; $i < 4; $i++) {
         	echo "<tr>";
-        	for ($x=0; $x < 4; $x++) {
+        	for ($x=0; $x < 3; $x++) {
          		$Random = random_int(0, 11);
        			if(in_array($Random, $ImagenesUtilizadas)){
             		$x-=1;
@@ -103,7 +102,6 @@
 		echo "</select>";
 		echo "<button type='button' id='preguntar' onclick='preguntaComboBox(); PreguntaSeguro();'>Preguntar</button>";
 		echo "<p id='mensaje'></p><p id='contador'>Contador de preguntas:</p>";
-		echo"<p id='mensajeSeguro'></p>";
 	?>
 </body>
 </html>
