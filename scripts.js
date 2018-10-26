@@ -156,40 +156,49 @@ function girarCarta(card, cardserver){
 		}
 	}
 }
-/*
+
+//JS WINNER
+
 //FUEGOS ARTIFICIALES
-"use strict";
+
 let canvas, width, height, ctx;
 let fireworks = [];
 let particles = [];
+
 function setup() {
 	canvas = document.getElementById("canvas");
 	setSize(canvas);
 	ctx = canvas.getContext("2d");
-	ctx.fillStyle = "#000000";
-	ctx.fillRect(0, 0, width, height);
+	//ctx.fillStyle = "#000000";
+	//ctx.fillRect(0, 0, width, height);
 	fireworks.push(new Firework(Math.random()*(width-200)+100));
-	window.addEventListener("resize",windowResized);
+	//window.addEventListener("resize",windowResized);
 	document.addEventListener("click",onClick);
 }
+
 setTimeout(setup,1);
+
 function loop(){
 	ctx.font = "bold 50px Antiqua";
 	ctx.fillText("¡¡¡HAS GANADO!!!",700,400);
 	ctx.globalAlpha = 0.1;
 	ctx.fillStyle = "#000001";
-	ctx.fillRect(0, 0, width, height);
+	//ctx.fillRect(0, 0, width, height);   <----- DESCOMENTAR PARA QUE LOS PETARDOS SEAN COMO ANTES
 	ctx.globalAlpha = 1;
+
 	for(let i=0; i<fireworks.length; i++){
 		let done = fireworks[i].update();
 		fireworks[i].draw();
 		if(done) fireworks.splice(i, 1);
+
 	}
+
 	for(let i=0; i<particles.length; i++){
 		particles[i].update();
 		particles[i].draw();
 		if(particles[i].lifetime>80) particles.splice(i,1);
 	}
+
 	if(Math.random()<1/60) fireworks.push(new Firework(Math.random()*(width-200)+100));
 }
 //setInterval(loop, 1/60);
@@ -202,6 +211,7 @@ class Particle{
 		this.vel = randomVec(6);
 		this.lifetime = 0;
 	}
+
 	update(){
 		this.x += this.vel.x;
 		this.y += this.vel.y;
@@ -210,12 +220,14 @@ class Particle{
 		this.vel.y *= 0.99;
 		this.lifetime++;
 	}
+
 	draw(){
 		ctx.globalAlpha = Math.max(1-this.lifetime/80, 0);
 		ctx.fillStyle = this.col;
 		ctx.fillRect(this.x, this.y, 3, 3);
 	}
 }
+
 class Firework{
 	constructor(x){
 		this.x = x;
@@ -223,6 +235,7 @@ class Firework{
 		this.isBlown = false;
 		this.col = randomCol();
 	}
+
 	update(){
 		this.y -= 2;
 		if(this.y < 350-Math.sqrt(Math.random()*500)*40){
@@ -233,26 +246,32 @@ class Firework{
 		}
 		return this.isBlown;
 	}
+
 	draw(){
 		ctx.globalAlpha = 1;
 		ctx.fillStyle = this.col;
 		ctx.fillRect(this.x, this.y, 2, 2);
 	}
 }
+
 function randomCol(){
 	var letter = '0123456789ABCDEF';
 	var nums = [];
+
 	for(var i=0; i<3; i++){
 		nums[i] = Math.floor(Math.random()*256);
 	}
+
 	let brightest = 0;
 	for(var i=0; i<3; i++){
 		if(brightest<nums[i]) brightest = nums[i];
 	}
+
 	brightest /=255;
 	for(var i=0; i<3; i++){
 		nums[i] /= brightest;
 	}
+
 	let color = "#";
 	for(var i=0; i<3; i++){
 		color += letter[Math.floor(nums[i]/16)];
@@ -260,26 +279,69 @@ function randomCol(){
 	}
 	return color;
 }
+
 function randomVec(max){
 	let dir = Math.random()*Math.PI*2;
 	let spd = Math.random()*max;
 	return{x: Math.cos(dir)*spd, y: Math.sin(dir)*spd};
 }
+
 function setSize(canv){
 	canv.style.width = (innerWidth) + "px";
 	canv.style.height = (innerHeight) + "px";
 	width = innerWidth;
 	height = innerHeight;
+
 	canv.width = innerWidth*window.devicePixelRatio;
 	canv.height = innerHeight*window.devicePixelRatio;
 	canvas.getContext("2d").scale(window.devicePixelRatio, window.devicePixelRatio);
 }
+
 function onClick(e){
 	fireworks.push(new Firework(e.clientX));
 }
+
 function windowResized(){
 	setSize(canvas);
 	ctx.fillStyle = "#000000";
 	ctx.fillRect(0, 0, width, height);
 }
-*/
+
+// GANADOR
+
+function LlamarWinner() {
+
+	setTimeout(Winner,3000);
+
+}
+
+function Winner() {
+
+	var Player = null;
+		var registre = confirm("¿Deseas registrar tu record?");
+	    if(registre == true){
+	        var person = prompt("Introduce tu nombre de usuario:\n(Mín. 6 caracteres)");
+	        if(person == null || person == "" || person.length < 6){
+	            alert("Por favor, introduce un nombre de usuario válido.");
+	            winner();
+	        }else{
+	            alert("¡Enhorabuena "+person+"! Gracias por jugar.");
+	            Player = person;
+	            return Player;
+			}
+	    }else{
+	        alert("Lo has hecho muy bien. ENHORABUENA!");
+	    }
+}
+
+//JS LOSER
+
+function LlamarLoser() {
+
+	setTimeout(Loser,2000);
+}
+
+function Loser() {
+
+	alert("Buena suerte la próxima vez :p");
+}

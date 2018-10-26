@@ -102,6 +102,18 @@
 		echo "</select>";
 		echo "<button type='button' id='preguntar' onclick='preguntaComboBox(); PreguntaSeguro();'>Preguntar</button>";
 		echo "<p id='mensaje'></p><p id='contador'>Contador de preguntas:</p>";
+
+		//Array con los datos del config
+		$ArrayCombo = array();
+		// Bucle / Inserción de datos ArrayCombo
+		$config = file("config.txt");
+		foreach($config as $Linea) {
+		$Clean = str_replace(":", "", $Linea);
+		$Clean2 = str_replace(",", "", $Clean);
+		$Clean3 = explode(" ", $Clean2);
+		array_push($ArrayCombo, $Clean3);
+		}
+		
 	?>
 </body>
 </html>
