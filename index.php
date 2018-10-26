@@ -84,24 +84,6 @@
         	echo "</tr>";
       	}
       	echo "</table></div>";
-      	echo "<select id='Pelo' name='Combo1' size=1 onChange='ComboBoxSelec();'>";
-		echo "<option id='Pelo1' value=0>PELO</option>";
-		echo "<option id='Pelo2' class='Pelo' value='moreno'>¿Tiene el pelo moreno?</option>";
-		echo "<option id='Pelo3' class='Pelo' value='rubio'>¿Tiene el pelo rubio?</option>";
-		echo "<option id='Pelo4' class='Pelo' value='castaño'>¿Tiene el pelo castaño?</option>";
-		echo "</select>";
-		echo "<select id='Gafas' name='Combo2' size=1 onChange='ComboBoxSelec();'>";
-		echo "<option id='Gafas1' value=0>GAFAS</option>";
-		echo "<option id='Gafas2' class='Gafas' value='gafas'>¿Lleva gafas?</option>";
-		echo "<option id='Gafas3' class='Gafas' value='nogafas'>¿No lleva gafas?</option>";
-		echo "</select>";
-		echo "<select id='Sexo' name='Combo3' size=1 onChange='ComboBoxSelec();'>";
-		echo "<option id='Sexo1' value=0>SEXO</option>";
-		echo "<option id='Sexo2' class='Sexo' value='hombre'>¿Es hombre?</option>";
-		echo "<option id='Sexo3' class='Sexo' value='mujer'>¿Es mujer?</option>";
-		echo "</select>";
-		echo "<button type='button' id='preguntar' onclick='preguntaComboBox(); PreguntaSeguro();'>Preguntar</button>";
-		echo "<p id='mensaje'></p><p id='contador'>Contador de preguntas:</p>";
 
 		//Array con los datos del config
 		$ArrayCombo = array();
@@ -114,6 +96,40 @@
 		array_push($ArrayCombo, $Clean3);
 		}
 		
+		echo "<select id='combo' name='Combo' size=1 onChange='ComboBoxSelec();'>";
+      	echo "<option id='default' value=0>PREGUNTAS</option>";
+      	$iValue=1;
+		for($c=0; $c < 3; $c++){
+			if($c<2){
+			echo '<option id="'.$ArrayCombo[$c][0].'" class="'.$ArrayCombo[$c][0].'" value="'.$ArrayCombo[$c][3].'">'.$ArrayCombo[$c][2].' '.$ArrayCombo[$c][3].'</option>';
+			}
+			if($c==1){
+				$pelos=5;
+				$idCabell=2;
+				$iValue+=1;
+				for($z=0; $z < 2; $z++){
+				echo '<option id="'.$ArrayCombo[$c][0].''.$idCabell.'" class="'.$ArrayCombo[$c][0].'" value="'.$ArrayCombo[$c][$pelos+1].'">'.$ArrayCombo[$c][$pelos].' '.$ArrayCombo[$c][$pelos+1].'</option>';
+				$pelos+=3;
+				$iValue+=1;
+				$idCabell+=1;
+				}
+			}
+			if($c==2){
+				$iValue+=1;
+				$sexos=2;
+				$idSexo=1;
+				for($y=0; $y < 2; $y++){
+				echo '<option id="'.$ArrayCombo[$c][0].''.$idSexo.'" class="'.$ArrayCombo[$c][0].'" value="'.$ArrayCombo[$c][$sexos+1].'">'.$ArrayCombo[$c][$sexos].' '.$ArrayCombo[$c][$sexos+1].'</option>';
+				$sexos+=3;
+				$iValue+=1;
+				$idSexo+=1;
+				}
+			}
+		}
+		echo "</select>";
+
+		echo "<button type='button' id='preguntar' onclick='preguntaComboBox(); PreguntaSeguro();'>Preguntar</button>";
+		echo "<p id='mensaje'></p><p id='contador'>Contador de preguntas:</p>";
 	?>
 </body>
 </html>
