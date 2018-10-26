@@ -39,10 +39,39 @@
 }
 /*<<------------Fireworks------------>>*/
 
-body{
+#bodyWin{
   margin: 0px;
   height: 100%;
   overflow-y: hidden;
+}
+
+/*CSS Win.php*/
+
+/*<<------------Fireworks------------>>*/
+
+@media only screen and (min-width: 400px) {
+
+  #bodyWin{
+
+    background-image: url("Images/Winner.gif");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 100%;
+    width: 100%;
+
+  }
+
+}
+
+#bodyWin {
+  margin: 0px;
+  height: 100%;
+  overflow-y: visible;
+  background-image: url("Images/Winner.gif");
+  background-size: 100%;
+  
+  background-size: cover;
+  position: fixed;
 }
 
 /*<<------------Contenedores HAS GANADO----------->>*/
@@ -63,4 +92,32 @@ body{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+/*CSS Lose.php*/
+
+@media only screen and (min-width: 400px) {
+
+  #bodyLose {
+
+    background-image: url("Images/Loser.gif");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+
+  }
+
+}
+
+#bodyLose {
+  margin: 0px;
+  height: 100%;
+  overflow-y: visible;
+  background-image: url("Images/Loser.gif");
+  background-size: 100%;
+  
+  background-size: cover;
+  position: fixed;
 }
