@@ -72,7 +72,7 @@
 					echo "<td>";
 						echo "<div class='flip-card' onclick='girarCarta(this, cartaServer);'>";
 							echo "<div class='front-face image'>";
-								echo '<img src="Images/'.$Array[$Random][0].'" ulleres="'.$Array[$Random][3].'" cabell="'.$Array[$Random][5].'" sexe="'.$Array[$Random][7].'" width="150" height="150">';
+								echo '<img class="cartasTablero" src="Images/'.$Array[$Random][0].'" ulleres="'.$Array[$Random][3].'" cabell="'.$Array[$Random][5].'" sexe="'.$Array[$Random][7].'" width="150" height="150">';
 							echo "</div>";
 							echo "<div class='back-face'>";
 								echo "<img src='ParteTrasera.png' width='150' height='150'>";
@@ -128,7 +128,7 @@
 		}
 		echo "</select>";
 
-		echo "<button type='button' id='preguntar' onclick='preguntaComboBox(); PreguntaSeguro();'>Preguntar</button>";
+		echo "<button type='button' id='preguntar' onclick='preguntaComboBox();'>Preguntar</button>";
 		echo "<p id='mensaje'></p><p id='contador'>Contador de preguntas:</p>";
 	?>
 </body>
