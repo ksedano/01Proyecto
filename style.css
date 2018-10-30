@@ -1,3 +1,41 @@
+.respuesta{
+  color: black;
+}
+
+.respuesta.verde {
+  color: black;
+  padding: 20px 20px;
+  box-shadow: 0px 0px 20px;
+  animation: infinite resplandorVerde 2s;
+  
+}
+@keyframes resplandorVerde {
+  0%,100%{
+    box-shadow: 0px 0px 20px;
+  }
+  50%{
+  box-shadow: 0px 0px 0px;
+  background: #75ff3d;
+  }
+}
+
+.respuesta.rojo {
+  color: black;
+  padding: 20px 20px;
+  box-shadow: 0px 0px 20px;
+  animation: infinite resplandorRojo 2s;
+  
+}
+@keyframes resplandorRojo {
+  0%,100%{
+    box-shadow: 0px 0px 20px;
+  }
+  50%{
+  box-shadow: 0px 0px 0px;
+  background: #c61800;
+  }
+}
+
 /*<<------------GIRAR CARTAS------------->>*/
 
 .back-face{

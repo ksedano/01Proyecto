@@ -7,10 +7,6 @@
 	<script type="text/javascript" defer src="scripts.js"></script>
 </head>
 <body>
-
-	<form>
-		<p><input type="button" value="EASY " id="BotonEasy" onclick="DeshabilitarEasy()" /></p>
-	</form>
 	<?php
 		/*COMPROBAMOS QUE NO HAYAN CARACTERISTICAS REPETIDAS*/
 		$Caracteristicas = [];
@@ -40,6 +36,13 @@
 				$x+=1;
 			}
 		}
+		echo "Dificultad:";
+		echo "<select id='comboNivel' name='ComboNivel' size=1 onChange='ComboLevelSelec();'>";
+      	echo "<option id='niveDefault' value=0>DEFAULT</option>";
+      	echo "<option id='easy' value='easy'>EASY</option>";
+      	echo "<option id='veryEasy' value='veryEasy'>VERY EASY</option>";
+      	echo "</select>";
+
 		//La Array con todos los elementos y caracteristicas.
 		$Array = array();
 		// Bucle / Inserción de datos Array
@@ -128,8 +131,8 @@
 		}
 		echo "</select>";
 
-		echo "<button type='button' id='preguntar' onclick='preguntaComboBox();'>Preguntar</button>";
-		echo "<p id='mensaje'></p><p id='contador'>Contador de preguntas:</p>";
+		echo "<button type='button' id='preguntar' onclick='preguntaComboBox(mensaje);'>Preguntar</button>";
+		echo "<p id='mensaje' class='respuesta'></p><p id='contador'>Contador de preguntas:</p>";
 	?>
 </body>
 </html>

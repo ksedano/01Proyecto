@@ -7,20 +7,13 @@ var valueCombo = document.getElementById("combo");
 var botonPreguntar = document.getElementById("preguntar");
 botonPreguntar.disabled=true;
 
-//OCULTAR BOTON EASY
+//HABILITAR BOTON PREGUNTAR
 
 function ComboBoxSelec(){
 	botonPreguntar.disabled=false;
 	if(valueCombo.value==0){
 		botonPreguntar.disabled=true;
 	}
-}
-
-//DESHABILITAR BOTON EASY
-
-function DeshabilitarEasy(){
-			document.getElementById("BotonEasy").disabled=true;
-
 }
 
 //PREGUNTA Y VUELVE A PREGUNTAR
@@ -44,66 +37,75 @@ var countPreguntas=0;
 var contador=document.getElementById("contador");
 var imagenServer=document.getElementById("ImagenServer");
 
-function preguntaComboBox(){
+function colorVerde(respuesta){
+	if(respuesta.className == 'respuesta' || respuesta.className == 'respuesta rojo'){
+		respuesta.classList.remove('rojo');
+		respuesta.classList.toggle('verde');
+	}
+}
+
+function colorRojo(respuesta){
+	if(respuesta.className == 'respuesta' || respuesta.className == 'respuesta verde'){
+		respuesta.classList.remove('verde');
+		respuesta.classList.toggle('rojo');
+	}
+}
+
+function preguntaComboBox(respuesta){
 	if(valueCombo.value!=0){
 		PreguntaSeguro();
-		document.getElementById("BotonEasy").style.display='none';
+		document.getElementById("comboNivel").disabled=true;
 		contador.innerText = "Contador de preguntas: "+(countPreguntas+=1);
 		if(valueCombo.value=="moreno?"){
 			if(imagenServer.getAttribute("cabell")=="moreno"){
+				colorVerde(respuesta);
 				document.getElementById("mensaje").innerText = "Si, es moreno.";
 			}else if(imagenServer.getAttribute("cabell")!="moreno"){
+				colorRojo(respuesta);
 				document.getElementById("mensaje").innerText = "No, no es moreno.";
 			}
 		}else if(valueCombo.value=="rubio?"){
 			if(imagenServer.getAttribute("cabell")=="ros"){
+				colorVerde(respuesta);
 				document.getElementById("mensaje").innerText = "Si, es rubio";
 			}else if(imagenServer.getAttribute("cabell")!="ros"){
+				colorRojo(respuesta);
 				document.getElementById("mensaje").innerText = "No, no es rubio.";
 			}
 		}else if(valueCombo.value=="castaño?"){
 			if(imagenServer.getAttribute("cabell")=="castany"){
+				colorVerde(respuesta);
 				document.getElementById("mensaje").innerText = "Si, es castaño.";
 			}else if(imagenServer.getAttribute("cabell")!="castany"){
+				colorRojo(respuesta);
 				document.getElementById("mensaje").innerText = "No, no es castaño.";
 			}
 		}if(valueCombo.value=="gafas?"){
 			if(imagenServer.getAttribute("ulleres")=="si"){
 				document.getElementById("mensaje").innerText = "Si, lleva gafas.";
 			}else if(imagenServer.getAttribute("ulleres")!="si"){
+				colorRojo(respuesta);
 				document.getElementById("mensaje").innerText = "No, no lleva gafas.";
 			}
 		}if(valueCombo.value=="hombre?"){
 			if(imagenServer.getAttribute("sexe")=="home\n"){
+				colorVerde(respuesta);
 				document.getElementById("mensaje").innerText = "Si, es un hombre";
 			}else if(imagenServer.getAttribute("sexe")!="home\n"){
+				colorRojo(respuesta);
 				document.getElementById("mensaje").innerText = "No, no es un hombre.";
 			}
 		}else if(valueCombo.value=="mujer?"){
 			if(imagenServer.getAttribute("sexe")=="dona\n"){
+				colorVerde(respuesta);
 				document.getElementById("mensaje").innerText = "Si, es una mujer.";
 			}else if(imagenServer.getAttribute("sexe")!="dona\n"){
+				colorRojo(respuesta);
 				document.getElementById("mensaje").innerText = "No, no es una mujer.";
 			}
 		}valueCombo.value=0;
 		botonPreguntar.disabled=true;
 	}
-}
-
-//ALERT REGISTRAR RECORD
-function winner() {
-    var registre = confirm("¡Has ganado! ¿Deseas registrar tu record?");
-    if(registre == true){
-        var person = prompt("Introduce tu nombre de usuario:\n(Mín. 6 caracteres)");
-        if(person == null || person == "" || person.length < 6){
-            alert("Por favor, introduce un nombre de usuario válido.");
-            winner();
-        }else{
-            alert("¡Enhorabuena "+person+"! Gracias por jugar.");
-		}
-    }else{
-        alert("Lo has hecho muy bien. ENHORABUENA!");
-    }
 }
 
 //ALERTA HAS PERDIDO
@@ -304,22 +306,21 @@ function LlamarWinner() {
 }
 
 function Winner() {
-
 	var Player = null;
-		var registre = confirm("¿Deseas registrar tu record?");
-	    if(registre == true){
-	        var person = prompt("Introduce tu nombre de usuario:\n(Mín. 6 caracteres)");
-	        if(person == null || person == "" || person.length < 6){
-	            alert("Por favor, introduce un nombre de usuario válido.");
-	            winner();
-	        }else{
-	            alert("¡Enhorabuena "+person+"! Gracias por jugar.");
-	            Player = person;
-	            return Player;
-			}
+	var registre = confirm("¿Deseas registrar tu record?");
+	if(registre == true){
+	    var person = prompt("Introduce tu nombre de usuario:");
+	    if(person == null || person == ""){
+	        alert("Por favor, introduce un nombre de usuario válido.");
+	        Winner();
 	    }else{
-	        alert("Lo has hecho muy bien. ENHORABUENA!");
-	    }
+	        alert("¡Enhorabuena "+person+"! Gracias por jugar.");
+	        Player = person;
+	        return Player;
+		}
+	}else{
+	    alert("Lo has hecho muy bien. ENHORABUENA!");
+	}
 }
 
 //JS LOSER
