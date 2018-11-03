@@ -76,7 +76,7 @@
 							echo "<div class='front-face image'>";
 								echo '<img class="cartasTablero" src="Images/'.$Array[$Random][0].'" ulleres="'.$Array[$Random][3].'" cabell="'.$Array[$Random][5].'" sexe="'.$Array[$Random][7].'" width="150" height="150">';
 							echo "</div>";
-							echo "<div class='back-face'>";
+							echo "<div class='back-face'id='back-faceMF'>";
 								echo "<img src='ParteTrasera.png' width='150' height='150'>";
 							echo "</div>";
 						echo "</div>";

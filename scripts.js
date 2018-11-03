@@ -429,6 +429,8 @@ function windowResized(){
 // GANADOR
 
 function Winner() {
+	var sonidoGanador = new Audio("Winner.wav");
+  	sonidoGanador.play();
 	var Player = null;
 	var registre = confirm("¿Deseas registrar tu record?");
 	if(registre == true){
@@ -454,6 +456,8 @@ function LlamarLoser() {
 }
 
 function Loser() {
+	var sonidoPerdedor = new Audio("Lose.mp3");
+  	sonidoPerdedor.play();
 
 	alert("Buena suerte la próxima vez :p");
 }
