@@ -42,7 +42,6 @@
       	echo "<option id='easy' value='easy'>EASY</option>";
       	echo "<option id='veryEasy' value='veryEasy'>VERY EASY</option>";
       	echo "</select>";
-
 		//La Array con todos los elementos y caracteristicas.
 		$Array = array();
 		// Bucle / Inserción de datos Array
@@ -62,7 +61,7 @@
 				echo '<img id="ImagenServer" src="Images/'.$Array[$RandomServer][0].'" ulleres="'.$Array[$RandomServer][3].'" cabell="'.$Array[$RandomServer][5].'" sexe="'.$Array[$RandomServer][7].'" width="150" height="150">';
 			echo "</div>";
 		echo "</div>";
-    	echo "<table class='table' id='Cartas' background='tapete.jpg'>";
+    	echo "<table class='table' id='Cartas' name='Cartas' background='tapete.jpg'>";
     	$ImagenesUtilizadas = [];
       	for ($i=0; $i < 4; $i++) {
         	echo "<tr>";
@@ -87,7 +86,6 @@
         	echo "</tr>";
       	}
       	echo "</table></div>";
-
 		//Array con los datos del config
 		$ArrayCombo = array();
 		// Bucle / Inserción de datos ArrayCombo
@@ -130,7 +128,6 @@
 			}
 		}
 		echo "</select>";
-
 		echo "<button type='button' id='preguntar' onclick='preguntaComboBox(mensaje);'>Preguntar</button>";
 		echo "<p id='mensaje' class='respuesta'></p><p id='contador'>Contador de preguntas:</p>";
 	?>

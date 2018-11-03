@@ -1,6 +1,7 @@
 //FUNCION SELEC COMBOBOX
 
 var valueCombo = document.getElementById("combo");
+var comboLevel = document.getElementById("comboNivel");
 
 //BOTON PREGUNTAR DESACTIVADO
 
@@ -52,9 +53,11 @@ function colorRojo(respuesta){
 }
 
 function preguntaComboBox(respuesta){
-	if(valueCombo.value!=0){
+	document.getElementById("comboNivel").disabled=true;
+	if(comboLevel.value==0){
+		//MODO DEFAULT
 		PreguntaSeguro();
-		document.getElementById("comboNivel").disabled=true;
+		if(valueCombo.value!=0){
 		contador.innerText = "Contador de preguntas: "+(countPreguntas+=1);
 		if(valueCombo.value=="moreno?"){
 			if(imagenServer.getAttribute("cabell")=="moreno"){
@@ -64,7 +67,7 @@ function preguntaComboBox(respuesta){
 				colorRojo(respuesta);
 				document.getElementById("mensaje").innerText = "No, no es moreno.";
 			}
-		}else if(valueCombo.value=="rubio?"){
+		}if(valueCombo.value=="rubio?"){
 			if(imagenServer.getAttribute("cabell")=="ros"){
 				colorVerde(respuesta);
 				document.getElementById("mensaje").innerText = "Si, es rubio";
@@ -72,7 +75,7 @@ function preguntaComboBox(respuesta){
 				colorRojo(respuesta);
 				document.getElementById("mensaje").innerText = "No, no es rubio.";
 			}
-		}else if(valueCombo.value=="castaño?"){
+		}if(valueCombo.value=="castaño?"){
 			if(imagenServer.getAttribute("cabell")=="castany"){
 				colorVerde(respuesta);
 				document.getElementById("mensaje").innerText = "Si, es castaño.";
@@ -95,7 +98,7 @@ function preguntaComboBox(respuesta){
 				colorRojo(respuesta);
 				document.getElementById("mensaje").innerText = "No, no es un hombre.";
 			}
-		}else if(valueCombo.value=="mujer?"){
+		}if(valueCombo.value=="mujer?"){
 			if(imagenServer.getAttribute("sexe")=="dona\n"){
 				colorVerde(respuesta);
 				document.getElementById("mensaje").innerText = "Si, es una mujer.";
@@ -103,6 +106,111 @@ function preguntaComboBox(respuesta){
 				colorRojo(respuesta);
 				document.getElementById("mensaje").innerText = "No, no es una mujer.";
 			}
+		}valueCombo.value=0;
+		botonPreguntar.disabled=true;
+		}
+	}else if(comboLevel.value=='easy'){
+		//MODO EASY
+		contador.innerText = "Contador de preguntas: "+(countPreguntas+=2);
+		if(valueCombo.value=="moreno?"){
+			if(imagenServer.getAttribute("cabell")=="moreno"){
+				colorVerde(respuesta);
+				document.getElementById("mensaje").innerText = "Si, es moreno.";
+			}else if(imagenServer.getAttribute("cabell")!="moreno"){
+				colorRojo(respuesta);
+				document.getElementById("mensaje").innerText = "No, no es moreno.";
+			}
+		}if(valueCombo.value=="rubio?"){
+			if(imagenServer.getAttribute("cabell")=="ros"){
+				colorVerde(respuesta);
+				document.getElementById("mensaje").innerText = "Si, es rubio";
+			}else if(imagenServer.getAttribute("cabell")!="ros"){
+				colorRojo(respuesta);
+				document.getElementById("mensaje").innerText = "No, no es rubio.";
+			}
+		}if(valueCombo.value=="castaño?"){
+			if(imagenServer.getAttribute("cabell")=="castany"){
+				colorVerde(respuesta);
+				document.getElementById("mensaje").innerText = "Si, es castaño.";
+			}else if(imagenServer.getAttribute("cabell")!="castany"){
+				colorRojo(respuesta);
+				document.getElementById("mensaje").innerText = "No, no es castaño.";
+			}
+		}if(valueCombo.value=="gafas?"){
+			if(imagenServer.getAttribute("ulleres")=="si"){
+				document.getElementById("mensaje").innerText = "Si, lleva gafas.";
+			}else if(imagenServer.getAttribute("ulleres")!="si"){
+				colorRojo(respuesta);
+				document.getElementById("mensaje").innerText = "No, no lleva gafas.";
+			}
+		}if(valueCombo.value=="hombre?"){
+			if(imagenServer.getAttribute("sexe")=="home\n"){
+				colorVerde(respuesta);
+				document.getElementById("mensaje").innerText = "Si, es un hombre";
+			}else if(imagenServer.getAttribute("sexe")!="home\n"){
+				colorRojo(respuesta);
+				document.getElementById("mensaje").innerText = "No, no es un hombre.";
+			}
+		}if(valueCombo.value=="mujer?"){
+			if(imagenServer.getAttribute("sexe")=="dona\n"){
+				colorVerde(respuesta);
+				document.getElementById("mensaje").innerText = "Si, es una mujer.";
+			}else if(imagenServer.getAttribute("sexe")!="dona\n"){
+				colorRojo(respuesta);
+				document.getElementById("mensaje").innerText = "No, no es una mujer.";
+			}
+		}valueCombo.value=0;
+		botonPreguntar.disabled=true;
+	}else if(comboLevel.value=='veryEasy'){
+		//MODO VERY EASY
+		contador.innerText = "Contador de preguntas: "+(countPreguntas+=2);
+		if(valueCombo.value=="moreno?"){
+			if(imagenServer.getAttribute("cabell")=="moreno"){
+				colorVerde(respuesta);
+				document.getElementById("mensaje").innerText = "Si, es moreno.";
+			}else if(imagenServer.getAttribute("cabell")!="moreno"){
+				colorRojo(respuesta);
+				document.getElementById("mensaje").innerText = "No, no es moreno.";
+			}valueCombo.remove(valueCombo.selectedIndex);
+		}if(valueCombo.value=="rubio?"){
+			if(imagenServer.getAttribute("cabell")=="ros"){
+				colorVerde(respuesta);
+				document.getElementById("mensaje").innerText = "Si, es rubio";
+			}else if(imagenServer.getAttribute("cabell")!="ros"){
+				colorRojo(respuesta);
+				document.getElementById("mensaje").innerText = "No, no es rubio.";
+			}valueCombo.remove(valueCombo.selectedIndex);
+		}if(valueCombo.value=="castaño?"){
+			if(imagenServer.getAttribute("cabell")=="castany"){
+				colorVerde(respuesta);
+				document.getElementById("mensaje").innerText = "Si, es castaño.";
+			}else if(imagenServer.getAttribute("cabell")!="castany"){
+				colorRojo(respuesta);
+				document.getElementById("mensaje").innerText = "No, no es castaño.";
+			}valueCombo.remove(valueCombo.selectedIndex);
+		}if(valueCombo.value=="gafas?"){
+			if(imagenServer.getAttribute("ulleres")=="si"){
+				document.getElementById("mensaje").innerText = "Si, lleva gafas.";
+			}else if(imagenServer.getAttribute("ulleres")!="si"){
+				colorRojo(respuesta);
+				document.getElementById("mensaje").innerText = "No, no lleva gafas.";
+			}valueCombo.remove(valueCombo.selectedIndex);
+		}if(valueCombo.value=="hombre?"){
+			if(imagenServer.getAttribute("sexe")=="home\n"){
+				colorVerde(respuesta);
+				document.getElementById("mensaje").innerText = "Si, es un hombre";
+			}else if(imagenServer.getAttribute("sexe")!="home\n"){
+				colorRojo(respuesta);
+				document.getElementById("mensaje").innerText = "No, no es un hombre.";
+			}valueCombo.remove(valueCombo.selectedIndex);
+		}if(valueCombo.value=="mujer?"){
+			if(imagenServer.getAttribute("sexe")=="dona\n"){
+				colorVerde(respuesta);
+				document.getElementById("mensaje").innerText = "Si, es una mujer.";
+			}else if(imagenServer.getAttribute("sexe")!="dona\n"){
+				colorRojo(respuesta);
+				document.getElementById("mensaje").innerText = "No, no es una mujer.";
+			}valueCombo.remove(valueCombo.selectedIndex);
 		}valueCombo.value=0;
 		botonPreguntar.disabled=true;
 	}
@@ -125,6 +233,27 @@ function loser() {
 var count=0;
 var cartaServidor = imagenServer.getAttribute("src");
 var arrayElegidas = [];
+
+function girarModeEasy(card, cardserver){
+	count+=1;
+	if(card.className == 'flip-card'){
+		card.classList.toggle('is-flipped');
+		var sonido = new Audio("sonido.mp3");
+  		sonido.play();
+  		var cartasrc = card.childNodes[0].firstChild.getAttribute("src");
+  		arrayElegidas.push(cartasrc);
+		if(count==11){
+			if(cardserver.className == 'flip-card'){
+				cardserver.classList.toggle('is-flipped');
+				if(arrayElegidas.includes(cartaServidor)){
+					setTimeout("loser()",2000);
+				}else{
+					setTimeout("winner()",2000);
+				}
+			}
+		}
+	}
+}
 
 function girarCarta(card, cardserver){
 	count+=1;
@@ -298,12 +427,6 @@ function windowResized(){
 }
 
 // GANADOR
-
-function LlamarWinner() {
-
-	setTimeout(Winner,3000);
-
-}
 
 function Winner() {
 	var Player = null;
