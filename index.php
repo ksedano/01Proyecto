@@ -70,7 +70,6 @@
             array_push($Array, $Clean3);
             }
             $RandomServer = random_int(0, 11);
-
             echo "<div class='flip-card' id='cartaServer'>";
                 echo "<div class='front-face image'>";
                     echo "<img src='ParteTrasera.png'>";

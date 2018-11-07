@@ -1,0 +1,215 @@
+body {
+	background: url(Images/Background.png) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+divDificultad {
+	border: solid 5px black;
+    border-radius: 10%;
+	background: rgba(255, 255, 0, 0.3);
+	width: 20%;
+	height: 10%;
+	margin: 1%;
+	position: absolute;
+    text-align: center;
+    padding-top: 5%;
+}
+
+divCartaServidor {
+	border: solid 5px black;
+    border-radius: 10%;
+	height: 30%;
+	width: 20%;
+	top: 30%;
+	position: absolute;
+}
+
+divTablero {
+	background: rgba(255, 0, 0, 0.3);
+    border-radius: 10%;
+	border: solid 5px black;
+	width: 50%;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	position: absolute;
+}
+
+divCombos {
+    background: rgba(0,255,255,0.3);
+    border-radius: 10%;
+    border: solid 5px black;
+    height: 30%;
+    width: 20%;
+    left: 77%;
+    margin: auto;
+    text-align: center;
+    position: absolute;
+    vertical-align: middle;
+    display: table-cell;
+    padding-top: 5%;
+}
+
+img {
+	height: 100%;
+	width: 100%;
+}
+
+.respuesta {
+	color: black;
+}
+
+.respuesta.verde {
+	color: black;
+	padding: 20px 20px;
+	box-shadow: 0px 0px 20px;
+	animation: infinite resplandorVerde 2s;
+}
+
+@keyframes resplandorVerde {
+	0%,
+	100% {
+		box-shadow: 0px 0px 20px;
+	}
+	50% {
+		box-shadow: 0px 0px 0px;
+		background: #75ff3d;
+	}
+}
+
+.respuesta.rojo {
+	color: black;
+	padding: 20px 20px;
+	box-shadow: 0px 0px 20px;
+	animation: infinite resplandorRojo 2s;
+}
+
+@keyframes resplandorRojo {
+	0%,
+	100% {
+		box-shadow: 0px 0px 20px;
+	}
+	50% {
+		box-shadow: 0px 0px 0px;
+		background: #c61800;
+	}
+}
+
+
+/*<<------------GIRAR CARTAS------------->>*/
+
+.back-face {
+	transform: rotateY(180deg);
+	background-size: cover;
+	width: 100%;
+	height: 100%;
+}
+
+.front-face:hover {
+	-moz-box-shadow: 0px 0px 30px black;
+	-webkit-box-shadow: 0px 0px 30px black;
+	box-shadow: 0px 0px 30px black;
+	cursor: pointer;
+}
+
+.flip-card .front-face,
+.flip-card .back-face {
+	transition: transform 500ms;
+	display: flex;
+	height: 30%;
+	width: 40%;
+	position: absolute;
+	backface-visibility: hidden;
+}
+
+.flip-card {
+	width: 30%;
+	height: 30%;
+	margin: 2px;
+	position: relative;
+}
+
+.flip-card.is-flipped {
+	transform: rotateY(180deg);
+	transition: transform 1.5s;
+	transform-style: preserve-3d;
+}
+
+/*CSS Win.php*/
+
+#bodyWin {
+	margin: 0px;
+	height: 100%;
+	overflow-y: hidden;
+}
+
+#bodyWin {
+	margin: 0px;
+	height: 100%;
+	overflow-y: visible;
+	background-image: url("Images/Winner.gif");
+	background-size: 100%;
+	background-size: cover;
+	
+}
+
+divWinInputAsk {
+	background-color: rgba(255,255,0,0.6);
+    border-radius: 10%;
+	border: solid 5px black;
+	height: 20%;
+	width: 30%;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	position: absolute;
+	padding-top: 5%;
+	text-align: center;
+}
+
+divWinInputRecord {
+	background-color: rgba(255,255,0,0.6);
+    border-radius: 10%;
+	border: solid 5px black;
+	height: 30%;
+	width: 30%;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	position: absolute;
+	padding-top: 5%;
+	text-align: center;	
+}
+
+/*Elementos Win*/
+
+#InputRecordText {
+	border-radius: 5%;
+	border-color: black;
+}
+
+#Previous, #Next {
+	height: 50%;
+	width: 20%;
+}
+
+/*CSS Lose.php*/
+
+#bodyLose {
+	margin: 0px;
+	height: 100%;
+	overflow-y: visible;
+	background-image: url("Images/Loser.gif");
+	background-size: 100%;
+	background-size: cover;
+	position: fixed;
+}
