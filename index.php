@@ -121,6 +121,7 @@
     <!-- COMBOBOXES -->
     <divCombos> 
         <?php
+            echo "<p id='CuentaAtras'></p>";
             echo "<p id='contador'>Contador de preguntas: 0</p>";
             //Array con los datos del config
             $ArrayCombo = array();

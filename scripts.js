@@ -55,6 +55,11 @@ function preguntaComboBox(respuesta){
     document.getElementById("comboNivel").disabled=true;
     if(comboLevel.value==0){
         //MODO DEFAULT
+        clearTimeout(intervalo1);
+        //Para parar el contador, sino volvera a llamar a la funcion y se restara de 2 en 2
+        totalTiempo=20;
+        //Cuando llamemos a la funcion, el contador vuelve a estar en 20
+        tiempoRecursivo();
         PreguntaSeguro();
         if(valueCombo.value!=0){
         contador.innerText = "Contador de preguntas: "+(countPreguntas+=1);
@@ -237,20 +242,24 @@ var cartaServidor = imagenServer.getAttribute("src");
 var arrayElegidas = [];
 
 function girarCarta(card, cardserver) {
-    count += 1;
-    if (card.className == 'flip-card') {
-        card.classList.toggle('is-flipped');
-        var sonido = new Audio("sonido.mp3");
-        sonido.play();
-        var cartasrc = card.childNodes[0].firstChild.getAttribute("src");
-        arrayElegidas.push(cartasrc);
-        if (count == 11) {
-            if (cardserver.className == 'flip-card') {
-                cardserver.classList.toggle('is-flipped');
-                if (arrayElegidas.includes(cartaServidor)) {
-                    setTimeout("loser()", 2000);
-                } else {
-                    setTimeout("winner()", 2000);
+    if(comboLevel.value=='easy' || comboLevel.value=='veryEasy' || totalTiempo==0){
+        //No la podra girar, ya que no tiene tiempo
+    }else{
+        count += 1;
+        if (card.className == 'flip-card') {
+            card.classList.toggle('is-flipped');
+            var sonido = new Audio("sonido.mp3");
+            sonido.play();
+            var cartasrc = card.childNodes[0].firstChild.getAttribute("src");
+            arrayElegidas.push(cartasrc);
+            if (count == 11) {
+                if (cardserver.className == 'flip-card') {
+                    cardserver.classList.toggle('is-flipped');
+                    if (arrayElegidas.includes(cartaServidor)) {
+                        setTimeout("loser()", 2000);
+                    } else {
+                        setTimeout("winner()", 2000);
+                    }
                 }
             }
         }
@@ -450,4 +459,23 @@ function Loser() {
     sonidoPerdedor.play();
 
     alert("Buena suerte la próxima vez :p");
+}
+
+//CONTADOR SEGUNDOS GIRAR CARTA
+
+var totalTiempo = 20;//funcion de girar carta
+var intervalo1;//funcion de girar carta
+
+function tiempoRecursivo(){
+    document.getElementById('CuentaAtras').innerHTML = "Te quedan "+totalTiempo+" segundos para girar una carta";
+    if (totalTiempo == 0) {
+        document.getElementById('CuentaAtras').innerHTML = 
+        "Se ha acabado tu tiempo, vuelve a preguntar <br> para poder seguir volteando cartas! <br> (Te quedan "
+        +totalTiempo+" segundos)";
+    } else {
+        /* Restamos un segundo al tiempo restante */
+        totalTiempo--;
+        /* Ejecutamos nuevamente la función al pasar 1000 milisegundos (1 segundo) */
+        intervalo1 = setTimeout("tiempoRecursivo()",1000);
+    }
 }
